@@ -7,9 +7,19 @@ h1{
 }
 body{
         font: arial;
-        font-size: 20;
         font-size: 20px;
         color: whitesmoke;
         text-align: center;
         background-color: darkslategrey;
-    }
+}
+button{
+    padding: 5px 12px;
+    background-color: rgba(178, 0, 0, 0.9);
+    font: arial;
+    font-size: 20px;
+    border-radius: 12px;
+    transition-duration: 0.2s;
+}
+button:hover{
+    background-color: rgba(47, 79, 79, 0);
+}
