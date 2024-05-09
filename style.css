@@ -1,5 +1,9 @@
 body{
-    font-size: 20px;
-    color: whitesmoke;
-    background-color: darkslategrey;
-}
+        font: arial;
+        font-size: 20;
+        font-size: 20px;
+        color: whitesmoke;
+        text-align: center;
+        margin: 50%;
+        background-color: darkslategrey;
+    }
