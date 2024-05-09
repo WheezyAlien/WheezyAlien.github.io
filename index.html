@@ -3,38 +3,40 @@
 <head>
     <title>Wheezy's Homepage</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* CSS to style the RSS feed */
+        #rss-feed {
+            list-style-type: none;
+            padding: 0;
+        }
+        #rss-feed li {
+            margin-bottom: 20px;
+        }
+        #rss-feed li img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+        #rss-feed li a {
+            color: blue; /* Change text color here */
+            text-decoration: none;
+        }
+        #rss-feed li a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <h1>Wheezy's Homepage</h1>
 <body>
     <div id="column1" style="float:left; margin:0; width:33%;">
-        Links<br><br>
-        <a href="https://nytimes.com/games/wordle">
-            <button>
-                Wordle
-            </button>
-        </a> <br>
-        <a href="https://www.nytimes.com/games/connections">
-            <button>
-                Connections
-            </button>
-        </a> <br>
-        <a href="https://www.nytimes.com/crosswords/game/mini">
-            <button>
-                Mini Crossword
-            </button>
-        </a> <br>
-        <a href="https://github.com/WheezyAlien">
-            <button>
-                GitHub
-            </button>
-        </a> <br>
+        <!-- Your existing content -->
     </div>
     <div id="column2" style="float:left; margin:0;width:33%;">
         <h2>RSS Feed</h2>
         <ul id="rss-feed"></ul>
     </div>
     <div id="column3" style="float:left; margin:0;width:33%">
-        Calendar
+        <!-- Your existing content -->
     </div>
 
     <script>
@@ -49,12 +51,20 @@
                 items.forEach(item => {
                     const title = item.querySelector('title').textContent;
                     const link = item.querySelector('link').textContent;
+                    const image = item.querySelector('image') ? item.querySelector('image').textContent : ''; // Extract image URL if available
                     const listItem = document.createElement('li');
                     const linkElement = document.createElement('a');
+                    const imageElement = document.createElement('img'); // Create img element
 
                     linkElement.textContent = title;
                     linkElement.href = link;
                     linkElement.target = '_blank';
+
+                    // Set image source if available
+                    if (image) {
+                        imageElement.src = image;
+                        listItem.appendChild(imageElement);
+                    }
 
                     listItem.appendChild(linkElement);
                     feedList.appendChild(listItem);
