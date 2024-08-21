@@ -62,38 +62,5 @@
         To be added!
     </div>
 
-    <script>
-        fetch('rss.xml')
-            .then(response => response.text())
-            .then(xml => {
-                const parser = new DOMParser();
-                const xmlDoc = parser.parseFromString(xml, 'text/xml');
-                const items = xmlDoc.querySelectorAll('item');
-                const feedList = document.getElementById('rss-feed');
-
-                items.forEach(item => {
-                    const title = item.querySelector('title').textContent;
-                    const link = item.querySelector('link').textContent;
-                    const image = item.querySelector('image') ? item.querySelector('image').textContent : ''; // Extract image URL if available
-                    const listItem = document.createElement('li');
-                    const linkElement = document.createElement('a');
-                    const imageElement = document.createElement('img'); // Create img element
-
-                    linkElement.textContent = title;
-                    linkElement.href = link;
-                    linkElement.target = '_blank';
-
-                    // Set image source if available
-                    if (image) {
-                        imageElement.src = image;
-                        listItem.appendChild(imageElement);
-                    }
-
-                    listItem.appendChild(linkElement);
-                    feedList.appendChild(listItem);
-                });
-            })
-            .catch(error => console.error('Error fetching RSS feed:', error));
-    </script>
-</body>
+   </body>
 </html>
